@@ -1,0 +1,76 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c_source}{}\label{main_8c_source}\mbox{\hyperlink{main_8c}{Ir para a documenta√ß√£o deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{funcoes_8h}{funcoes.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <locale.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}00013\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014\ \ \ \ \ setlocale(LC\_ALL,\ \textcolor{stringliteral}{"{}Portuguese"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ Criar\ o\ grafo\ vazio}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{struct_grafo}{Grafo}}*\ g\ =\ \mbox{\hyperlink{funcoes_8c_af5cf618621b693d94215a263da3ba5ff}{criarGrafo}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018\ \ \ \ \ g-\/>vertices\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019\ \ \ \ \ g-\/>totalAntenas\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ Carregar\ antenas\ de\ ficheiro\ e\ inserir\ diretamente\ no\ grafo}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ carregadas\ =\ \mbox{\hyperlink{funcoes_8c_a2aea4bc31a61b06320c0c7994d0ff24b}{carregarFicheiro}}(\textcolor{stringliteral}{"{}antenas.txt"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ temp\ =\ carregadas;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ nova\ =\ \mbox{\hyperlink{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122}{criarAntena}}(temp-\/>frequencia,\ temp-\/>x,\ temp-\/>y);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ nova-\/>prox\ =\ NULL;\ \textcolor{comment}{//\ evitar\ que\ a\ antena\ traga\ a\ lista\ original\ ligada}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ g-\/>vertices\ =\ \mbox{\hyperlink{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232}{inserirAntena}}(nova,\ g-\/>vertices,\ g);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>prox;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ Criar\ manualmente\ 3\ antenas\ com\ a\ mesma\ frequÍncia}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ a1\ =\ \mbox{\hyperlink{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122}{criarAntena}}(\textcolor{charliteral}{'B'},\ 2,\ 3);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ a2\ =\ \mbox{\hyperlink{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122}{criarAntena}}(\textcolor{charliteral}{'B'},\ 5,\ 3);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ a3\ =\ \mbox{\hyperlink{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122}{criarAntena}}(\textcolor{charliteral}{'B'},\ 8,\ 3);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Inserir\ as\ antenas\ no\ grafo}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037\ \ \ \ \ g-\/>vertices\ =\ \mbox{\hyperlink{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232}{inserirAntena}}(a1,\ g-\/>vertices,\ g);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038\ \ \ \ \ g-\/>vertices\ =\ \mbox{\hyperlink{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232}{inserirAntena}}(a2,\ g-\/>vertices,\ g);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039\ \ \ \ \ g-\/>vertices\ =\ \mbox{\hyperlink{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232}{inserirAntena}}(a3,\ g-\/>vertices,\ g);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Ligar\ antenas\ entre\ si}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{funcoes_8c_acc488631825732e25732baf4d6d00766}{ligarAntenas}}(a1,\ a2);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{funcoes_8c_acc488631825732e25732baf4d6d00766}{ligarAntenas}}(a2,\ a3);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ Mostrar\ antenas\ e\ suas\ adjacÍncias}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ atual\ =\ g-\/>vertices;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Antenas\ no\ grafo\ (total\ =\ \%d):\(\backslash\)n"{}},\ g-\/>totalAntenas);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{while}\ (atual)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/\ Antena\ \%c\ (\%d,\%d):\(\backslash\)n"{}},\ atual-\/>frequencia,\ atual-\/>x,\ atual-\/>y);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_adjacencia}{Adjacencia}}*\ adj\ =\ atual-\/>adj;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (adj)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ -\/>\ ligada\ a\ \%c\ (\%d,\%d)\(\backslash\)n"{}},\ adj-\/>destino-\/>frequencia,\ adj-\/>destino-\/>x,\ adj-\/>destino-\/>y);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ adj\ =\ adj-\/>prox;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ atual\ =\ atual-\/>prox;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{funcoes_8c_a9cb48b8d88a00b63581291d3b787ed84}{guardarGrafoBinario}}(\textcolor{stringliteral}{"{}grafo.bin"{}},\ g);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{funcoes_8c_aaf5a3a9da96b66a0d9ede1fef7ed9763}{listarConteudoBinario}}(\textcolor{stringliteral}{"{}grafo.bin"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}chegou\ ao\ fim,\ vai\ libertar\ memoria"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Libertar\ lista\ carregada\ original}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (carregadas)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_antena}{Antena}}*\ apagar\ =\ carregadas;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ carregadas\ =\ carregadas-\/>prox;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ free(apagar);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nTotal\ final\ de\ antenas\ no\ grafo:\ \%d\(\backslash\)n"{}},\ g-\/>totalAntenas);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{funcoes_8c_ad2cc344cc3c05dea1944fce6cc593687}{libertarGrafo}}(g);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00074}00074\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00077}00077\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,281 @@
+\doxysection{ReferÃªncia ao ficheiro funcoes.\+c}
+\hypertarget{funcoes_8c}{}\label{funcoes_8c}\index{funcoes.c@{funcoes.c}}
+
+
+Implementação das funções principais do projeto.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}funcoes.\+h"{}}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+\doxysubsubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122}{criar\+Antena}} (char frequencia, int x, int y)
+\begin{DoxyCompactList}\small\item\em Cria uma nova antena com os dados fornecidos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232}{inserir\+Antena}} (\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}inicio, \mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Insere uma antena na lista ligada, por ordem de coordenadas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{funcoes_8c_a2aea4bc31a61b06320c0c7994d0ff24b}{carregar\+Ficheiro}} (const char \texorpdfstring{$\ast$}{*}nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Carrega antenas de um ficheiro de texto com mapa de frequências. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8c_a00a0630f569a848afaa336084a51546c}{listar\+Antenas}} (\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}inicio)
+\begin{DoxyCompactList}\small\item\em Percorre a lista de antenas (sem imprimir) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8c_a9cebe79ea98cf756e51e1d2ee16a0c6a}{listar\+Adjacencias}} (\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}inicio)
+\begin{DoxyCompactList}\small\item\em Função de teste para mostrar as adjacências de cada antena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{funcoes_8c_af5cf618621b693d94215a263da3ba5ff}{criar\+Grafo}} ()
+\begin{DoxyCompactList}\small\item\em Cria e inicializa um grafo vazio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8c_ad2cc344cc3c05dea1944fce6cc593687}{libertar\+Grafo}} (\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Liberta toda a memória ocupada pelo grafo e suas listas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8c_acc488631825732e25732baf4d6d00766}{ligar\+Antenas}} (\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Liga duas antenas entre si, se tiverem a mesma frequência (ligação bidirecional) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8c_a9cb48b8d88a00b63581291d3b787ed84}{guardar\+Grafo\+Binario}} (const char \texorpdfstring{$\ast$}{*}nome\+Ficheiro, \mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Função para guardar o grafo em ficheiro binario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{funcoes_8c_aa7ef58e352f93c095f7db737f91e63c2}{ler\+Grafo\+Binario}} (const char \texorpdfstring{$\ast$}{*}nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Função para ler de um binario e gravar na struct grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8c_aaf5a3a9da96b66a0d9ede1fef7ed9763}{listar\+Conteudo\+Binario}} (const char \texorpdfstring{$\ast$}{*}nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Função para listar o conteúdo de um ficheiro binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Implementação das funções principais do projeto. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyAuthor}{Autor}
+Nelson Cruz, aluno 31103 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+Maio 2025 
+\end{DoxyDate}
+
+
+Definido no ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\Hypertarget{funcoes_8c_a2aea4bc31a61b06320c0c7994d0ff24b}\index{funcoes.c@{funcoes.c}!carregarFicheiro@{carregarFicheiro}}
+\index{carregarFicheiro@{carregarFicheiro}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{carregarFicheiro()}{carregarFicheiro()}}
+{\footnotesize\ttfamily \label{funcoes_8c_a2aea4bc31a61b06320c0c7994d0ff24b} 
+\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*} carregar\+Ficheiro (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+Ficheiro}{}\end{DoxyParamCaption})}
+
+
+
+Carrega antenas de um ficheiro de texto com mapa de frequências. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em nome\+Ficheiro} & Nome do ficheiro a ler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Lista ligada de antenas carregadas 
+\end{DoxyReturn}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00060}{60}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122}\index{funcoes.c@{funcoes.c}!criarAntena@{criarAntena}}
+\index{criarAntena@{criarAntena}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{criarAntena()}{criarAntena()}}
+{\footnotesize\ttfamily \label{funcoes_8c_ac8a249fc282e0ebf886c7fd6344d3122} 
+\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*} criar\+Antena (\begin{DoxyParamCaption}\item[{char}]{frequencia}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Cria uma nova antena com os dados fornecidos. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em frequencia} & Carácter da frequência \\
+\hline
+{\em x} & Coordenada x da antena \\
+\hline
+{\em y} & Coordenada y da antena \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Apontador para a antena criada 
+\end{DoxyReturn}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00013}{13}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_af5cf618621b693d94215a263da3ba5ff}\index{funcoes.c@{funcoes.c}!criarGrafo@{criarGrafo}}
+\index{criarGrafo@{criarGrafo}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{criarGrafo()}{criarGrafo()}}
+{\footnotesize\ttfamily \label{funcoes_8c_af5cf618621b693d94215a263da3ba5ff} 
+\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*} criar\+Grafo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Cria e inicializa um grafo vazio. 
+
+\begin{DoxyReturn}{Retorna}
+Apontador para o grafo criado 
+\end{DoxyReturn}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00124}{124}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_a9cb48b8d88a00b63581291d3b787ed84}\index{funcoes.c@{funcoes.c}!guardarGrafoBinario@{guardarGrafoBinario}}
+\index{guardarGrafoBinario@{guardarGrafoBinario}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{guardarGrafoBinario()}{guardarGrafoBinario()}}
+{\footnotesize\ttfamily \label{funcoes_8c_a9cb48b8d88a00b63581291d3b787ed84} 
+void guardar\+Grafo\+Binario (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+Ficheiro}{, }\item[{\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*}}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Função para guardar o grafo em ficheiro binario. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em guarda} & cada antena seguida das suas adjacencias todas e so depois a proxima antena \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00175}{175}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232}\index{funcoes.c@{funcoes.c}!inserirAntena@{inserirAntena}}
+\index{inserirAntena@{inserirAntena}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{inserirAntena()}{inserirAntena()}}
+{\footnotesize\ttfamily \label{funcoes_8c_a15a87e6292643c6a4d1b4400d8cb3232} 
+\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*} inserir\+Antena (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}}]{inicio}{, }\item[{\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*}}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Insere uma antena na lista ligada, por ordem de coordenadas. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em a} & Apontador para a antena a inserir \\
+\hline
+{\em inicio} & Apontador para o início da lista \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Novo início da lista ligada 
+\end{DoxyReturn}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00024}{24}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_aa7ef58e352f93c095f7db737f91e63c2}\index{funcoes.c@{funcoes.c}!lerGrafoBinario@{lerGrafoBinario}}
+\index{lerGrafoBinario@{lerGrafoBinario}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{lerGrafoBinario()}{lerGrafoBinario()}}
+{\footnotesize\ttfamily \label{funcoes_8c_aa7ef58e352f93c095f7db737f91e63c2} 
+\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*} ler\+Grafo\+Binario (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+Ficheiro}{}\end{DoxyParamCaption})}
+
+
+
+Função para ler de um binario e gravar na struct grafo. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em le} & uma antena e a suas adjacencias a seguir \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00224}{224}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_ad2cc344cc3c05dea1944fce6cc593687}\index{funcoes.c@{funcoes.c}!libertarGrafo@{libertarGrafo}}
+\index{libertarGrafo@{libertarGrafo}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{libertarGrafo()}{libertarGrafo()}}
+{\footnotesize\ttfamily \label{funcoes_8c_ad2cc344cc3c05dea1944fce6cc593687} 
+void libertar\+Grafo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_grafo}{Grafo}} \texorpdfstring{$\ast$}{*}}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Liberta toda a memória ocupada pelo grafo e suas listas. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em g} & Apontador para o grafo \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00132}{132}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_acc488631825732e25732baf4d6d00766}\index{funcoes.c@{funcoes.c}!ligarAntenas@{ligarAntenas}}
+\index{ligarAntenas@{ligarAntenas}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{ligarAntenas()}{ligarAntenas()}}
+{\footnotesize\ttfamily \label{funcoes_8c_acc488631825732e25732baf4d6d00766} 
+void ligar\+Antenas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Liga duas antenas entre si, se tiverem a mesma frequência (ligação bidirecional) 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em a} & Apontador para a antena de origem \\
+\hline
+{\em b} & Apontador para a antena de destino \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00150}{150}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_a9cebe79ea98cf756e51e1d2ee16a0c6a}\index{funcoes.c@{funcoes.c}!listarAdjacencias@{listarAdjacencias}}
+\index{listarAdjacencias@{listarAdjacencias}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{listarAdjacencias()}{listarAdjacencias()}}
+{\footnotesize\ttfamily \label{funcoes_8c_a9cebe79ea98cf756e51e1d2ee16a0c6a} 
+void listar\+Adjacencias (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}}]{inicio}{}\end{DoxyParamCaption})}
+
+
+
+Função de teste para mostrar as adjacências de cada antena. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em inicio} & Apontador para a lista ligada de antenas \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00102}{102}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_a00a0630f569a848afaa336084a51546c}\index{funcoes.c@{funcoes.c}!listarAntenas@{listarAntenas}}
+\index{listarAntenas@{listarAntenas}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{listarAntenas()}{listarAntenas()}}
+{\footnotesize\ttfamily \label{funcoes_8c_a00a0630f569a848afaa336084a51546c} 
+void listar\+Antenas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antena}{Antena}} \texorpdfstring{$\ast$}{*}}]{inicio}{}\end{DoxyParamCaption})}
+
+
+
+Percorre a lista de antenas (sem imprimir) 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em inicio} & Apontador para o início da lista de antenas \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00092}{92}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
+\Hypertarget{funcoes_8c_aaf5a3a9da96b66a0d9ede1fef7ed9763}\index{funcoes.c@{funcoes.c}!listarConteudoBinario@{listarConteudoBinario}}
+\index{listarConteudoBinario@{listarConteudoBinario}!funcoes.c@{funcoes.c}}
+\doxysubsubsection{\texorpdfstring{listarConteudoBinario()}{listarConteudoBinario()}}
+{\footnotesize\ttfamily \label{funcoes_8c_aaf5a3a9da96b66a0d9ede1fef7ed9763} 
+void listar\+Conteudo\+Binario (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+Ficheiro}{}\end{DoxyParamCaption})}
+
+
+
+Função para listar o conteúdo de um ficheiro binário. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em nome\+Ficheiro} & Nome do ficheiro a ler \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{funcoes_8c_source_l00281}{281}} do ficheiro \mbox{\hyperlink{funcoes_8c_source}{funcoes.\+c}}.
+
